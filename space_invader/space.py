@@ -1,8 +1,6 @@
 import pygame
-# import threading
-# from timer import Timer
-# t = Timer()
-# t.start()
+
+
 pygame.init()
 BLACK_ENEMY = pygame.image.load("black.png")
 RED_ENEMY = pygame.image.load("red.png")
@@ -95,6 +93,7 @@ def redraw_window(win):
         b.draw(win)
     pygame.display.update()
 
+    #main_loop
 def main():
     global ship, enemies, spaceship_bullet, enemy_bullet, score
     score = 0
