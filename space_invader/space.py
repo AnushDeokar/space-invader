@@ -1,6 +1,8 @@
 import pygame
-
-
+# import threading
+# from timer import Timer
+# t = Timer()
+# t.start()
 pygame.init()
 BLACK_ENEMY = pygame.image.load("black.png")
 RED_ENEMY = pygame.image.load("red.png")
@@ -16,7 +18,7 @@ class spaceship():
         self.x = x
         self.y = y
         self.vel = 5
-        self.life = 20
+        self.life = 2
 
     def move(self):
         keys = pygame.key.get_pressed()
@@ -93,7 +95,6 @@ def redraw_window(win):
         b.draw(win)
     pygame.display.update()
 
-    #main_loop
 def main():
     global ship, enemies, spaceship_bullet, enemy_bullet, score
     score = 0
@@ -142,6 +143,8 @@ def main():
             b.move()
             if ship.x + SPACESHIP.get_width()>= b.x >= ship.x and ship.y == b.y:
                 ship.life -= 1
+                if ship.life==0:
+                    win.exit()
                 enemy_bullet.remove(b)
         redraw_window(win)
 
